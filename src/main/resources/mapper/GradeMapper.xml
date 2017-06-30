@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bdqn.tangcco.grade.dao.GradeMapper">
+    <resultMap id="gradeMap" type="cn.bdqn.tangcco.entity.Grade">
+        <id property="id" column="id"></id>
+        <result property="createDate" column="creat_date"></result>
+        <result property="details" column="details"></result>
+        <result property="gradeName" column="grade_name"></result>
+    </resultMap>
+
+    <select id="queryGradeByName" resultMap="gradeMap">
+
+        SELECT
+        id,
+        grade_name,
+        create_date,
+        details
+        FROM grade
+        <if test="gradename!=null">
+            where grade_name LIKE concat('%',#{gradename},'%')
+        </if>
+        order by grade_name desc
+        limit #{start},#{rows}
+    </select>
+    <select id="queryCountGradeByName" resultType="Integer">
+
+        SELECT count(*) FROM grade
+        <if test="gradename!=null">
+            WHERE grade_name LIKE concat('%',#{gradename},'%')
+        </if>
+    </select>
+    <select id="queryGradeById" resultMap="gradeMap">
+        SELECT * FROM grade WHERE gradeid=#{gradeid}
+    </select>
+</mapper>
