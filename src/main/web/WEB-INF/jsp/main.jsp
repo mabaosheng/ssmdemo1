@@ -44,26 +44,7 @@
             <a href="#" onclick="addTabs('班级管理','${pageContext.request.contextPath}/grade/gradeList.controller')">班级管理</a>
         </li>
     </ul>
-    <ul>
-        <li>
-            <a href="#" onclick="addTabs('学生管理','login.controller')">学生管理</a>
-        </li>
-    </ul>
-    <ul>
-        <li>
-            <a href="#" onclick="addTabs('爱好管理','login.controller')">爱好管理</a>
-        </li>
-    </ul>
-    <ul>
-        <li>
-            <a href="#" onclick="addTabs('用户管理','login.controller')">用户管理</a>
-        </li>
-    </ul>
-    <ul>
-        <li>
-            <a href="#" onclick="addTabs('退出系统','login.controller')">退出系统</a>
-        </li>
-    </ul>
+
 </div>
 <div region="center">
     <div class="easyui-tabs" id="gg" style="width: 100%;height: 100%">

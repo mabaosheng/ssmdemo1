@@ -5,9 +5,9 @@
 <mapper namespace="cn.bdqn.tangcco.grade.dao.GradeMapper">
     <resultMap id="gradeMap" type="cn.bdqn.tangcco.entity.Grade">
         <id property="id" column="id"></id>
-        <result property="createDate" column="creat_date"></result>
-        <result property="details" column="details"></result>
         <result property="gradeName" column="grade_name"></result>
+        <result property="createDate" column="create_date"></result>
+        <result property="details" column="details"></result>
     </resultMap>
 
     <select id="queryGradeByName" resultMap="gradeMap">
@@ -18,8 +18,8 @@
         create_date,
         details
         FROM grade
-        <if test="gradename!=null">
-            where grade_name LIKE concat('%',#{gradename},'%')
+        <if test="gradeName!=null">
+            where grade_name LIKE concat('%',#{gradeName},'%')
         </if>
         order by grade_name desc
         limit #{start},#{rows}
@@ -27,11 +27,11 @@
     <select id="queryCountGradeByName" resultType="Integer">
 
         SELECT count(*) FROM grade
-        <if test="gradename!=null">
-            WHERE grade_name LIKE concat('%',#{gradename},'%')
+        <if test="gradeName!=null">
+            WHERE grade_name LIKE concat('%',#{gradeName},'%')
         </if>
     </select>
     <select id="queryGradeById" resultMap="gradeMap">
-        SELECT * FROM grade WHERE gradeid=#{gradeid}
+        SELECT * FROM grade WHERE gradeid=#{id}
     </select>
 </mapper>

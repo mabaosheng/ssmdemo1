@@ -27,15 +27,14 @@ public class GradeController {
         return "gradeList";
     }
 
-    @RequestMapping(value = "/queryGrade", method = RequestMethod.POST, produces={"application/json;chaset=UTF-8"})
+    @RequestMapping(value = "/queryGrade", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-
     public String queryGrade(Integer page,Integer rows,String gradename) {
 
         Map<String, Object> map = new HashMap<String, Object>();
         PageUtil pageUtil = gradeServices.queryGradeByName(page, rows, gradename);
         map.put("total", pageUtil.getTotal());
-        map.put("gradeList", pageUtil.getObjs());
+        map.put("rows", pageUtil.getObjs());
         String json = JSONArray.toJSONString(map);
         System.out.println(json);
         return json;

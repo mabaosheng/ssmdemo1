@@ -10,9 +10,9 @@ import java.util.List;
  */
 public interface GradeMapper {
 
-    Integer queryCountGradeByName(@Param("gradename") String gradename) ;
+    Integer queryCountGradeByName(@Param("gradeName") String gradename) ;
 
-    List<Grade> queryGradeByName(@Param("start") Integer start, @Param("rows") Integer rows, @Param("gradename") String gradename);
+    List<Grade> queryGradeByName(@Param("start") Integer start, @Param("rows") Integer rows, @Param("gradeName") String gradename);
 
-    Grade queryGradeById(@Param("gradeid") Integer gradeid);
+    Grade queryGradeById(@Param("id") Integer gradeid);
 }

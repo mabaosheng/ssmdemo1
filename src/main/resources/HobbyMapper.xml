@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bdqn.tangcco.hobby.dao.HobbyMapper">
+    <resultMap id="baseMap" type="Hobby">
+        <id column="id" property="id" jdbcType="INTEGER"></id>
+        <result column="hobby_name" property="hobbyName" jdbcType="VARCHAR"></result>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"></result>
+    </resultMap>
+    <select id="queryAll" resultMap="baseMap">
+        SELECT * FROM hobby
+        ORDER BY create_time DESC
+        limit #{start},#{rows}
+    </select>
+    <select id="queryCount" resultType="java.lang.Integer">
+        SELECT count(*) FROM hobby
+    </select>
+</mapper>
